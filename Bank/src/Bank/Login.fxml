@@ -15,7 +15,7 @@ login    fx:id="btnLogin"
 -->
 
 <BorderPane prefHeight="423.0" prefWidth="597.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="Bank.Controller">
+fx:controller = "Bank.Controller">
    <top>
       <HBox alignment="CENTER" prefHeight="132.0" prefWidth="597.0" BorderPane.alignment="CENTER">
          <children>
@@ -49,7 +49,7 @@ fx:controller="Bank.Controller">
             </VBox>
             <HBox prefHeight="83.0" prefWidth="290.0">
                <children>
-                  <Button fx:id="btnOk" mnemonicParsing="false" prefWidth="420.0" text="Login">
+                  <Button fx:id="btnLogin" onAction="#LoginProc" mnemonicParsing="false" prefWidth="420.0" text="Login">
                      <font>
                         <Font size="21.0" />
                      </font>
