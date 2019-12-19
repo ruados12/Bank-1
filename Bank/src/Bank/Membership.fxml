@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 
 <!-- 
+이름 필드  fx:id="joinName"
 아이디필드   fx:id="joinId"
 비밀번호필드 fx:id="joinPw"
 비밀번호확인필드 fx:id="joinPwOk"
@@ -25,7 +26,7 @@
 
  -->
 
-<BorderPane prefHeight="562.0" prefWidth="513.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+<BorderPane prefHeight="599.0" prefWidth="513.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
 fx:controller="Bank.Controller">
    <top>
       <VBox prefHeight="61.0" prefWidth="513.0" BorderPane.alignment="CENTER_LEFT">
@@ -51,9 +52,23 @@ fx:controller="Bank.Controller">
    <left>
       <VBox alignment="TOP_RIGHT" prefHeight="407.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
+            <VBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="90.0">
+               <children>
+                  <Label text="이름" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </VBox>
             <VBox alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="100.0" spacing="30.0">
                <children>
-                  <Label text="아이디" />
+                  <Label text="아이디">
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding></Label>
                </children>
                <padding>
                   <Insets right="10.0" />
@@ -61,32 +76,41 @@ fx:controller="Bank.Controller">
             </VBox>
             <VBox alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="100.0" spacing="30.0">
                <children>
-                  <Label text="비밀번호" />
+                  <Label text="비밀번호">
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding></Label>
                </children>
                <padding>
                   <Insets right="10.0" />
                </padding>
             </VBox>
-            <VBox alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="100.0">
+            <VBox alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="90.0">
                <children>
-                  <Label text="비밀번호 확인" />
+                  <Label text="비밀번호 확인">
+                     <padding>
+                        <Insets top="15.0" />
+                     </padding></Label>
                </children>
                <padding>
-                  <Insets right="10.0" top="3.0" />
+                  <Insets right="10.0" top="10.0" />
                </padding>
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </VBox>
-            <VBox alignment="CENTER_RIGHT" prefHeight="48.0" prefWidth="90.0">
+            <VBox alignment="CENTER_RIGHT" prefHeight="87.0" prefWidth="90.0">
                <children>
-                  <Label text="주민번호" />
+                  <Label text="주민번호">
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding></Label>
                </children>
                <VBox.margin>
                   <Insets />
                </VBox.margin>
                <padding>
-                  <Insets right="10.0" top="15.0" />
+                  <Insets right="10.0" top="30.0" />
                </padding>
             </VBox>
             <VBox alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="90.0">
@@ -105,7 +129,10 @@ fx:controller="Bank.Controller">
             </VBox>
             <VBox alignment="CENTER_RIGHT" prefHeight="56.0" prefWidth="90.0">
                <children>
-                  <Label text="핸드폰번호" />
+                  <Label text="핸드폰번호">
+                     <padding>
+                        <Insets top="12.0" />
+                     </padding></Label>
                </children>
                <VBox.margin>
                   <Insets />
@@ -116,7 +143,10 @@ fx:controller="Bank.Controller">
             </VBox>
             <VBox alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="100.0">
                <children>
-                  <Label text="잔액" />
+                  <Label text="잔액">
+                     <padding>
+                        <Insets top="15.0" />
+                     </padding></Label>
                </children>
                <VBox.margin>
                   <Insets />
@@ -138,7 +168,7 @@ fx:controller="Bank.Controller">
       </VBox>
    </left>
    <bottom>
-      <VBox alignment="CENTER" prefHeight="125.0" prefWidth="513.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="107.0" prefWidth="513.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="btnJoinOk" mnemonicParsing="false" prefHeight="40.0" prefWidth="300.0" text="회원가입">
                <font>
@@ -149,7 +179,7 @@ fx:controller="Bank.Controller">
    <right>
       <VBox prefHeight="346.0" prefWidth="99.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="BOTTOM_LEFT" prefHeight="77.0" prefWidth="99.0">
+            <VBox alignment="BOTTOM_LEFT" prefHeight="126.0" prefWidth="99.0">
                <children>
                   <Button fx:id="btnOverlap" mnemonicParsing="false" prefHeight="28.0" prefWidth="64.0" text="중복확인" />
                </children>
@@ -165,8 +195,9 @@ fx:controller="Bank.Controller">
    <center>
       <VBox prefHeight="379.0" prefWidth="281.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="132.0" prefWidth="281.0" spacing="18.0">
+            <VBox prefHeight="213.0" prefWidth="314.0" spacing="18.0">
                <children>
+                  <TextField fx:id="joinName" prefHeight="30.0" />
                   <TextField fx:id="joinId" prefHeight="30.0" prefWidth="283.0" />
                   <PasswordField fx:id="joinPw" prefHeight="30.0" />
                   <PasswordField fx:id="joinPwOk" prefHeight="30.0" />
@@ -175,9 +206,9 @@ fx:controller="Bank.Controller">
                   <Insets top="5.0" />
                </VBox.margin>
             </VBox>
-            <VBox prefHeight="143.0" prefWidth="281.0">
+            <VBox prefHeight="176.0" prefWidth="314.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="314.0" spacing="10.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="314.0" spacing="10.0">
                      <children>
                         <TextField fx:id="securityNum1" prefHeight="30.0" prefWidth="150.0" />
                         <Label text="-" />
@@ -192,7 +223,7 @@ fx:controller="Bank.Controller">
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="314.0">
                      <children>
-                        <TextField fx:id="bankNum" prefHeight="44.0" prefWidth="314.0" />
+                        <TextField fx:id="bankNum" prefHeight="30.0" prefWidth="314.0" />
                      </children>
                      <VBox.margin>
                         <Insets top="7.0" />
@@ -215,11 +246,11 @@ fx:controller="Bank.Controller">
                   </HBox>
                </children>
             </VBox>
-            <HBox prefHeight="45.0" prefWidth="314.0">
+            <HBox prefHeight="55.0" prefWidth="314.0">
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="59.0" prefWidth="200.0" spacing="10.0">
                      <children>
-                        <TextField fx:id="money" prefHeight="30.0" prefWidth="237.0">
+                        <TextField fx:id="money" prefHeight="37.0" prefWidth="174.0">
                            <HBox.margin>
                               <Insets top="10.0" />
                            </HBox.margin>
