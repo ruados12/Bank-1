@@ -18,7 +18,8 @@ public class DatabaseServiceImpl implements DatabaseService{
    // SQL String
    final String INSERTSQL = "insert into bankmember(id,pw,name,phone,ppnum,banknum,balance)"
          + " values(?,?,?,?,?,?,?)";
-   final String LOGINSQL = "select count(id) from member where id=? AND pw=?";
+   final String LOGINSQL = "select count(id) from bankmember where id=? AND pw=?";
+   final String LOGIN = "select count(id) from bankmember where id=?";
 
    private Connection dbConn;
 
@@ -48,7 +49,6 @@ public class DatabaseServiceImpl implements DatabaseService{
    public void Insert(Member member) { 
       try {
          PreparedStatement prep = dbConn.prepareStatement(INSERTSQL);
-         // 동적할당
          prep.setString(1, member.getId());
          prep.setString(2, member.getPw());
          prep.setString(3, member.getName());
@@ -62,24 +62,57 @@ public class DatabaseServiceImpl implements DatabaseService{
       } catch(SQLException e) {
          e.printStackTrace();
       }
-  
-   }
 
+   }
+   
+   // 로그인 진행시 아이디 존재확인
    @Override
-   public boolean Select(String id, String pw) {
+   public boolean IdEnter(String id, String pw) {
       boolean result = true;
-      
       CommonService commonSrv = new CommonServiceImpl();
 
       try {
-         PreparedStatement prep = dbConn.prepareStatement(LOGINSQL);
+         PreparedStatement prep = dbConn.prepareStatement(LOGIN);
+         PreparedStatement prep2 = dbConn.prepareStatement(LOGINSQL);
          prep.setString(1, id);
-         prep.setString(2, pw);
+         
+         prep2.setString(1, id);
+         prep2.setString(2, pw);
+
+         ResultSet rs = prep.executeQuery();
+         ResultSet rs2 = prep2.executeQuery();
+         if(rs.next()) {
+            if(rs.getInt(1) == 0) {
+               commonSrv.InfoMsg("해당 아이디는 존재하지 않습니다.", "다시한번 확인해주세요.");
+               result = false;
+            } else if (rs2.getInt(1)!= 0) {
+               commonSrv.InfoMsg("회원 정보가 일치하지 않습니다.", "다시한번 확인해주세요.");
+               result = false;
+            }
+            rs.close();
+         } 
+      } catch (SQLException e) {
+         result = false;
+         e.printStackTrace();
+      }
+
+      return result;
+   }
+   
+   // 아이디 중복 확인
+   @Override
+   public boolean IdCopy(String id) {
+      boolean result = true;
+
+      try {
+         PreparedStatement prep = dbConn.prepareStatement(LOGIN);
+         prep.setString(1, id);
 
          ResultSet rs = prep.executeQuery();
          if(rs.next()) {
-            if(rs.getInt(1)==0) {
-               commonSrv.InfoMsg("입력하신 정보가 틀립니다.", "ID와 패스워드를 다시 확인해주세요.");
+            if(rs.getInt(1) != 0) {
+               CommonService commonSrv = new CommonServiceImpl();
+               commonSrv.InfoMsg("이미 등록된 아이디 입니다.", "아이디를 다시 입력하세요.");
                result = false;
             }
             rs.close();

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<!--  
+login    fx:id="btnLogin"
+회원가입        fx:id="btnJoin"
+아이디필드      fx:id="userId"
+비밀번호필드   fx:id="userPw" 
+-->
+
+<BorderPane prefHeight="423.0" prefWidth="597.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="Bank.Controller">
+   <top>
+      <HBox alignment="CENTER" prefHeight="132.0" prefWidth="597.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="BANK">
+               <font>
+                  <Font size="46.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="127.0" prefWidth="322.0" spacing="20.0">
+               <children>
+                  <TextField fx:id="userId" prefHeight="35.0" prefWidth="300.0">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets right="10.0" top="20.0" />
+                     </padding>
+                  </TextField>
+                  <PasswordField fx:id="userPw">
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                  </PasswordField>
+               </children>
+            </VBox>
+            <HBox prefHeight="83.0" prefWidth="290.0">
+               <children>
+                  <Button fx:id="btnOk" mnemonicParsing="false" prefWidth="420.0" text="Login">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="76.0" prefWidth="411.0">
+               <children>
+                  <HBox alignment="TOP_RIGHT" prefHeight="76.0" prefWidth="425.0">
+                     <children>
+                        <Label prefHeight="24.0" prefWidth="128.0" text="회원이 아니신가요?">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
+                        </Label>
+                        <Button fx:id="btnJoin" mnemonicParsing="false" prefHeight="27.0" prefWidth="76.0" text="회 원 가 입">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <right>
+      <VBox prefHeight="269.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="167.0" prefWidth="165.0" />
+         </children>
+      </VBox>
+   </right>
+   <left>
+      <VBox prefHeight="277.0" prefWidth="86.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="102.0" prefWidth="78.0" spacing="20.0">
+               <VBox.margin>
+                  <Insets top="45.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
+      </VBox>
+   </left>
+</BorderPane>
